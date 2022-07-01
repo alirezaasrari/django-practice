@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>department detail</title>
+</head>
+<body>
+    <h1>DEPARTMENT NAME: {{ departmentdetail.name }}</h1>
+    <h1><a href="{% url 'add-employee-form' departmentdetail.id %}">ADD EMPLOYEE</a></h1>
+    <h2>EMPLOYEE LIST:</h2>
+    {% for emp in employee %}
+    <h3>{{emp.name}} | {{emp.lastname}} | {{emp.age}} | {{emp.position}} | 
+        <a href="{% url 'editcase2' emp.id %}">edit</a>
+        | <a href="{% url 'deletecase2' emp.id %}">delete</a></h3>
+    {% endfor %}
+    <h2></h2>
+    <h4><a href="{% url 'department-list' %}">back to homepage</a></h4>
+</body>
+</html>
