@@ -63,7 +63,8 @@ def Edit2(request, id):
     form = EmployeeForm(request.POST or None, instance = employee)
     if form.is_valid():
         form.save()
-        return redirect('department-list')
+        id = employee.position.id
+        return redirect('department-detail', id=id)
 
     return render(request, 'department/edit2.html', {'form':form, 'employee': employee})
 
@@ -71,4 +72,5 @@ def Edit2(request, id):
 def Delete2(request, id):
     employee = Employee.objects.get(id=id)
     employee.delete()
-    return redirect('department-list')
+    id = employee.position.id
+    return redirect('department-detail', id=id)
