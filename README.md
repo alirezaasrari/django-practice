@@ -1,4 +1,4 @@
-# ranir
+# Django-Practice
 this is a project based in django and
 you can at first:
 see a page containes capability of adding different departments
